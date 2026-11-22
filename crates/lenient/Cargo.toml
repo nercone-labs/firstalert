@@ -1,0 +1,10 @@
+[package]
+name = "lenient"
+description = "Lenient reading of JSON values: a field that is missing or of an unexpected type is absent, not an error"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[dependencies]
+serde_json.workspace = true

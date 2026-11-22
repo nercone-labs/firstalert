@@ -1,0 +1,11 @@
+[package]
+name = "japan"
+description = "Japan: its prefectures, their boundaries, and the areas of the earthquake information"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[dependencies]
+geodesy.workspace = true
+serde.workspace = true

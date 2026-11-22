@@ -1,0 +1,30 @@
+[workspace]
+resolver = "3"
+members = ["crates/lenient", "crates/geodesy", "crates/jma", "crates/japan", "crates/wolfx", "crates/p2pquake", "crates/firstalert", "crates/firstalert-ffi"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+authors = ["Nercone <nercone@nercone.dev>"]
+repository = "https://github.com/nercone-labs/firstalert"
+
+[workspace.dependencies]
+lenient = { path = "crates/lenient" }
+geodesy = { path = "crates/geodesy" }
+jma = { path = "crates/jma" }
+japan = { path = "crates/japan" }
+wolfx = { path = "crates/wolfx" }
+p2pquake = { path = "crates/p2pquake" }
+firstalert = { path = "crates/firstalert" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+jni-sys = "0.4"
+lexopt = "0.3"
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+# Not `abort`: the C interface catches a panic of the core and answers with an error, so that a
+# bug in reading one message never ends the process that receives the alerts.
+strip = true

@@ -1,0 +1,13 @@
+[package]
+name = "wolfx"
+description = "Messages of the Wolfx Open API (JMA earthquake early warnings, earthquake lists and tsunami information)"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[dependencies]
+geodesy.workspace = true
+jma.workspace = true
+lenient.workspace = true
+serde_json.workspace = true

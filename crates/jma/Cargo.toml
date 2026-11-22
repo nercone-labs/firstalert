@@ -1,0 +1,11 @@
+[package]
+name = "jma"
+description = "Japan Meteorological Agency conventions: seismic intensity, tsunami grades, times, and the estimation of ground motion"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[dependencies]
+geodesy.workspace = true
+serde.workspace = true

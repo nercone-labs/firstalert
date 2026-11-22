@@ -1,0 +1,13 @@
+[package]
+name = "p2pquake"
+description = "Messages of the P2P Quake (P2P地震情報) JSON API v2"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[dependencies]
+geodesy.workspace = true
+jma.workspace = true
+lenient.workspace = true
+serde_json.workspace = true

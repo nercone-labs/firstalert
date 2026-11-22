@@ -1,0 +1,16 @@
+[package]
+name = "firstalert-ffi"
+description = "The C interface of the FirstAlert core, and its Java Native Interface for Android"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[lib]
+name = "firstalert_ffi"
+crate-type = ["cdylib", "staticlib", "rlib"]
+
+[dependencies]
+firstalert.workspace = true
+# The Java Native Interface is not only Android's: a desktop JVM loads the same library.
+jni-sys.workspace = true

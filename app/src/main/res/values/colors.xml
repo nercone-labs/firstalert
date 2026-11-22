@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The background of the FirstAlert icon (website/public/static/assets/images/projects/labs/firstalert/icon.svg of nercone-dev). -->
+    <color name="ic_launcher_background">#FFFF4D4D</color>
+</resources>

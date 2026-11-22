@@ -1,0 +1,22 @@
+[package]
+name = "firstalert"
+description = "FirstAlert core: receives earthquake early warnings, earthquake and tsunami information, decides how to alert, and words the alerts"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "firstalert-replay"
+path = "src/main.rs"
+
+[dependencies]
+geodesy.workspace = true
+jma.workspace = true
+japan.workspace = true
+wolfx.workspace = true
+p2pquake.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+lexopt.workspace = true
+lenient.workspace = true
