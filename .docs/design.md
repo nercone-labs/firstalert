@@ -302,3 +302,20 @@ the ones in the core have tests of their own in `crates/firstalert/tests/engine.
 tsunami episode, a raised advisory, Wolfx's `expired`, a report of another earthquake during a
 warning, a device clock behind the servers, a device clock ahead with P2P Quake alone, a forecast
 after a warning, and the catch-up on every opening).
+
+## Continuous integration
+
+The workflows are those of TypeFace Droplet and Replay Integrity (`test.yml` on every push and
+pull request; `release.yml` on a tag `vMAJOR.MINOR.PATCH`, which writes the version, runs the
+tests and publishes the signed APK). One addition: Gradle runs through `.github/scripts/gradle.sh`,
+which runs it again (up to three times, a minute and then two apart) when it failed only because
+a dependency repository could not be reached.
+
+The first release failed this way. Its release job started with an empty Gradle home and could not
+resolve the Kotlin Compose plugin, which the two test jobs of the same run, also with empty Gradle
+homes, had resolved minutes before from the same commit; the same build passes locally with an
+empty Gradle home too. Gradle reports an unreachable repository and a missing artifact with the
+same message, so the script cannot tell them apart: a dependency that is really missing fails
+after the last attempt, a few minutes later than it would otherwise. A build or test failure is
+never retried. *Set aside:* raising Gradle's own network retries, which do not cover a failure
+that ends as "not found", and retrying every failure, which would run failing tests three times.
